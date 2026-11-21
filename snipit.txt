@@ -1,3 +1,6 @@
+
+##### Definitions of concepts
+
 -----> Object detection = tectnik for finding an object within an image or  a video
 it gives : Bbox info of the  x, y, width, height, classification of that object  
 
@@ -16,3 +19,39 @@ it gives : Bbox info of the  x, y, width, height, classification of that object
                                 type of image recognation that idy and sepearte the distinc object in an image on a pixel lavel
                                 >> giives exact shape of the detect image 
         
+
+# performance metrics:
+
+----> IoU (Intersection Over Union): mesure localiZation 
+        :--> tels how close the predicted bbox is close to Groud truth [0,1]
+        :--> tchec how much the the predicted bbox overlap with the roud truth
+        :--> if bbox overlap (IoU = 1) then it is a perfect detection
+
+        IoU = Area oh Intersetion/ Area of Union of bbox
+
+----> mAP:  classification :
+                Tp | Fp
+                Fn | Tn
+
+                Tp = True positif
+                Tn = true Negatif
+                Fp = False positif
+                Fn = False Negatif
+
+----> Confusion Matrix:
+        :--> Table tha consist of actual classies on one side and the predicted classes on the other side 
+                
+
+----> Presision (P): Toltal positif out ouf total positif precictions
+
+                 P= Tp / (Tp + Fp )
+
+----> recall (R): Actual Positif out of all predictions
+                
+                R= Tp / (Tp + Fn )
+
+--> precision Avrage (): Area Under the precision-Recall curve (Combine both precision and recall to give a better idea of the overall Accuracy of the model)
+
+AvragePrecision ----> Single class
+Mean Average Precision ---> Multiclasses 
+---> Mean average precision mAP 
