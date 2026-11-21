@@ -1,0 +1,18 @@
+-----> Object detection = tectnik for finding an object within an image or  a video
+it gives : Bbox info of the  x, y, width, height, classification of that object  
+
+----> # object clasification , detection , segementation
+
+-------------|||>> classification :
+                                type of image recognation that idy what type object is present image or video
+
+        
+        
+-------------|||>> Detection:
+                            type of image recognation that idy and locate the present of an obejct in an image or video
+                            giuves boudon box info (x,y) and class ass well
+        
+-------------|||>> Segementation
+                                type of image recognation that idy and sepearte the distinc object in an image on a pixel lavel
+                                >> giives exact shape of the detect image 
+        
