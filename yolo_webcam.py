@@ -32,14 +32,22 @@ while True:
     for result in  results:
         boxes = result.boxes
         for box in boxes:
+            
+            """
+            #1 bbox with cv2
             x1, y1, x2, y2=box.xyxy[0]
-            #convert x1, y1, x2, y2 values to integer 
+            #-->convert x1, y1, x2, y2 values to integer 
             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
-            print(x1, y1, x2, y2)
-            #Draw the bouding box
+            #-->Draw the bouding box
             cv.rectangle(frame,(x1, y1), (x2, y2), (255,0,255),3)
+            """
+            #2 bbox with cv zone
+            x1, y1, x2, y2=box.xyxy[0]
+            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+            w, h= x2-x1, y2-y1
+            cvzone.cornerRect(frame, (x1, y1, w, h))
 
-    cv.imshow("yolo",frame)
+    cv.imshow("yolo", frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
         break
 
