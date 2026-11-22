@@ -18,10 +18,10 @@ dependencies = [
     "pillow>=13.0.0",
     "pyyaml>=6.0.4",
     "requests>=2.34.2",
-    "scikit-image>=0.26.0",
+    "scikit-image",
     "scipy>=1.18.1",
-    "torch>=2.15.0",
-    "torchvision>=0.29.2",
+    "torch",
+    "torchvision",
     "tqdm>=4.70.1",
     "ultralytics>=8.4.216",
 ]
@@ -32,3 +32,17 @@ computer-vision-code-base = "computer_vision_code_base:main"
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
 build-backend = "uv_build"
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu126" },
+]
+torchvision = [
+    { index = "pytorch-cu126" },
+]
+
