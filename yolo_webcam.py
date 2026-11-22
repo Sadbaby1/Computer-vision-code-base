@@ -28,6 +28,17 @@ while True:
     # Optional: Run YOLO detection on each frame
     results = model(frame, stream = True)
 
+    # getting the bbox of each result
+    for result in  results:
+        boxes = result.boxes
+        for box in boxes:
+            x1, y1, x2, y2=box.xyxy[0]
+            #convert x1, y1, x2, y2 values to integer 
+            x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+            print(x1, y1, x2, y2)
+            #Draw the bouding box
+            cv.rectangle(frame,(x1, y1), (x2, y2), (255,0,255),3)
+
     cv.imshow("yolo",frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
         break
