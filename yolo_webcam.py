@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import cv2 as cv
 import cvzone # to display all detection
+import math
 
 
 
@@ -46,6 +47,13 @@ while True:
             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
             w, h= x2-x1, y2-y1
             cvzone.cornerRect(frame, (x1, y1, w, h))
+
+            # add detection confident to the bbox
+            conf = math.ceil((box.conf[0]*100))
+            cls = int(box.cls[0])
+            name = model.names[cls]
+            label = f'{name}: {conf}%'
+            cvzone.putTextRect(frame,label, ((x1),max(y1-10, 20)), scale=0.9,thickness=1), 
 
     cv.imshow("yolo", frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
